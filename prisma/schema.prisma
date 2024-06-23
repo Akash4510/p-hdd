@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum GENDER {
+  MALE
+  FEMALE
+}
+
+enum CHEST_PAIN {
+  TYPICAL_ANGINA
+  ATYPICAL_ANGINA
+  NON_ANGIAL_PAIN
+  ASYMPTOMATIC
+}
+
+enum REST_ECG {
+  NORMAL
+  ST_T_WAVE_ABNORMALITY
+  LEFT_VENTRICUALR_HYPERTOPHY
+}
+
+enum SLOPE {
+  UPSLOPING
+  FLAT
+  DOWNSLOPING
+}
+
+enum PREDICTION {
+  HEALTHY
+  UNHEALTHY
+}
+
+model Record {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String
+
+  age             Int
+  sex             GENDER
+  cp              CHEST_PAIN
+  trestBps        Int
+  chol            Int
+  fbs             Boolean
+  restEcg         REST_ECG
+  thalach         Int
+  exang           Boolean
+  oldPeak         Int
+  slope           SLOPE
+  ca              Int
+  thal            Int
+
+  prediction      PREDICTION
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
