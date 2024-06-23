@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { PredictionInputSchema } from "@/schema/prediction-input-schema";
 import { db } from "@/lib/db";
+import { revalidatePath } from "next/cache";
 
 const mappings = {
   sex: {
@@ -13,13 +14,13 @@ const mappings = {
   cp: {
     TYPICAL_ANGINA: 1,
     ATYPICAL_ANGINA: 2,
-    NON_ANGIAL_PAIN: 3,
+    NON_ANGINAL_PAIN: 3,
     ASYMPTOMATIC: 4,
   },
   restecg: {
     NORMAL: 0,
     ST_T_WAVE_ABNORMALITY: 1,
-    LEFT_VENTRICUALR_HYPERTOPHY: 2,
+    LEFT_VENTRICUALR_HYPERTROPHY: 2,
   },
   slope: {
     UPSLOPING: 1,
@@ -77,6 +78,10 @@ export const predictDisease = async (
           prediction: prediction == 0 ? "HEALTHY" : "UNHEALTHY",
         },
       });
+
+      revalidatePath("/dashboard");
+
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
       return {
         success: {

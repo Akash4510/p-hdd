@@ -15,9 +15,9 @@ const DashboardPage = async () => {
   });
 
   return (
-    <div className="w-[97%] max-w-[1300px] mx-auto py-4">
+    <div className="w-[94%] max-w-[1300px] mx-auto py-4">
       DashboardPage
-      <h1>User id: {user.id}</h1>
+      <h1>User: {user.fullName}</h1>
       <div className="grid grid-cols-3 gap-6 mt-12">
         {userRecords.map((record) => (
           <div key={record.id} className="border rounded-md p-4">

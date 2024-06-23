@@ -6,7 +6,7 @@ const GENDER = z.enum(["MALE", "FEMALE"], {
 });
 
 const CHEST_PAIN = z.enum(
-  ["TYPICAL_ANGINA", "ATYPICAL_ANGINA", "NON_ANGIAL_PAIN", "ASYMPTOMATIC"],
+  ["TYPICAL_ANGINA", "ATYPICAL_ANGINA", "NON_ANGINAL_PAIN", "ASYMPTOMATIC"],
   {
     required_error: "Chest pain type is required",
     invalid_type_error: "Invalid value for chest pain type",
@@ -14,7 +14,7 @@ const CHEST_PAIN = z.enum(
 );
 
 const REST_ECG = z.enum(
-  ["NORMAL", "ST_T_WAVE_ABNORMALITY", "LEFT_VENTRICUALR_HYPERTOPHY"],
+  ["NORMAL", "ST_T_WAVE_ABNORMALITY", "LEFT_VENTRICUALR_HYPERTROPHY"],
   {
     required_error: "Rest ECG type is required",
     invalid_type_error: "Invalid value for rest ECG type",
