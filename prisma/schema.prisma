@@ -49,13 +49,13 @@ model Record {
   age             Int
   sex             GENDER
   cp              CHEST_PAIN
-  trestBps        Int
+  trestbps        Int
   chol            Int
   fbs             Boolean
-  restEcg         REST_ECG
+  restecg         REST_ECG
   thalach         Int
   exang           Boolean
-  oldPeak         Int
+  oldpeak         Int
   slope           SLOPE
   ca              Int
   thal            Int
