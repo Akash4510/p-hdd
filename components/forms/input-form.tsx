@@ -39,7 +39,7 @@ interface InputFormProps {
 export const InputForm = ({ userId }: InputFormProps) => {
   const [isPending, startTransition] = useTransition();
   const [predictionResult, setPredictionResult] = useState<string>("");
-  const predictionResultBoxRef = useRef<HTMLDivElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   const form = useForm<PredictionInputSchema>({
     resolver: zodResolver(PredictionInputSchema),
@@ -83,7 +83,7 @@ export const InputForm = ({ userId }: InputFormProps) => {
               message: success.predictionMessage,
             });
             setPredictionResult(success.predictionMessage);
-            predictionResultBoxRef?.current?.scrollIntoView({
+            ref?.current?.scrollIntoView({
               behavior: "smooth",
             });
           }
@@ -107,11 +107,20 @@ export const InputForm = ({ userId }: InputFormProps) => {
   return (
     <Form {...form}>
       <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-8">
+        <div ref={ref} className="scroll-m-52">
+          <h1 className="text-3xl font-semibold">
+            Predict the risk of heart disease
+          </h1>
+          <p>
+            Fill in the values correctly to know the condition of your heart,
+            please read the instructions before filling in the values
+          </p>
+        </div>
+
         {predictionResult && (
           <div
-            ref={predictionResultBoxRef}
             className={cn(
-              "border border-purple-600 rounded-lg p-10 scroll-m-52 bg-purple-600 text-white",
+              "rounded-lg py-10 px-6 bg-purple-600 text-white",
               predictionResult ===
                 "Your heart seems to be unhealthy, please consult your doctor" &&
                 "bg-red-500"
