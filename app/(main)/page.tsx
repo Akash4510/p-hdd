@@ -6,57 +6,43 @@ import { Button } from "@/components/ui/button";
 const HomePage = () => {
   return (
     <>
-      <div className="relative">
-        {/* <div className="absolute -z-10 w-full h-full inset-0">
-          <Image
-            className="w-[50%] h-full object-cover"
-            src="/heart-health.webp"
-            quality={100}
-            alt="heart-health"
-            width={100}
-            height={100}
-          />
-        </div> */}
+      <section className="w-[94%] max-w-[1300px] mx-auto py-4" id="about">
+        <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+            <Image
+              className="object-cover object-center rounded-xl"
+              alt="hero"
+              src="/heart-health.webp"
+              width={540}
+              height={540}
+            />
+          </div>
 
-        <section className="w-[94%] max-w-[1300px] mx-auto py-4" id="about">
-          <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-            <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-              <Image
-                className="object-cover object-center rounded-xl"
-                alt="hero"
-                src="/heart-health.webp"
-                width={540}
-                height={540}
-              />
-            </div>
+          <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+            <h2 className="text-4xl font-bold">Healthy Heart</h2>
+            <p className="text-xl mb-4">A Heart Disease Prediction System</p>
 
-            <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-              <h2 className="text-4xl font-bold">Healthy Heart</h2>
-              <p className="text-xl mb-4">A Heart Disease Prediction System</p>
+            <p className="mb-6 leading-relaxed text-gray-600">
+              A &quot;Heart Disease Prediction&quot; system is a specialized
+              tool designed to assess an individual&apos;s risk of developing
+              cardiovascular diseases (CVD) such as heart attacks or strokes.
+              This system typically leverages a combination of machine learning
+              algorithms, statistical analysis, and medical data to predict
+              heart Disease outcomes. The primary objective is to provide early
+              warnings and personalized insights, enabling timely medical
+              interventions and lifestyle changes to mitigate risk.
+            </p>
 
-              <p className="mb-6 leading-relaxed text-gray-600">
-                A &quot;Heart Disease Prediction&quot; system is a specialized
-                tool designed to assess an individual&apos;s risk of developing
-                cardiovascular diseases (CVD) such as heart attacks or strokes.
-                This system typically leverages a combination of machine
-                learning algorithms, statistical analysis, and medical data to
-                predict heart Disease outcomes. The primary objective is to
-                provide early warnings and personalized insights, enabling
-                timely medical interventions and lifestyle changes to mitigate
-                risk.
-              </p>
-
-              <div className="flex justify-center">
-                <Button asChild size="lg" className="">
-                  <Link href="/prediction">
-                    Predict the risk of heart disease
-                  </Link>
-                </Button>
-              </div>
+            <div className="flex justify-center">
+              <Button asChild size="lg" className="">
+                <Link href="/prediction">
+                  Predict the risk of heart disease
+                </Link>
+              </Button>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       <footer
         className="text-gray-600 body-font border-t w-[94%] max-w-[1300px] mx-auto py-4"
